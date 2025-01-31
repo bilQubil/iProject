@@ -103,7 +103,7 @@ class controllerProducts {
             
             // If the product exists, it will be returned in the response
             const product = response.data;
-
+            console.log(product, '<<< product')
             if (!product) {
                 throw { name: 'NotFound' };
             }
@@ -208,8 +208,8 @@ class controllerProducts {
             console.log(process.env.MIDTRANS_SERVER_KEY, '<<< process.env.MIDTRANS_SERVER_KEY')
         
             const orderId = Math.random().toString()
-            const amount = 10000;
-
+            const amount = Math.round(req.query.total);
+// console.log(req.query, '<<< user')
             let parameter = {
                 "transaction_details": {
                     "order_id": orderId,

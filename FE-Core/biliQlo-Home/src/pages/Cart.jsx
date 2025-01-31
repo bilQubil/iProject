@@ -4,44 +4,61 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Cart() {
-  const { cartItems, removeFromCart, calculateCartTotal } = useContext(ProductContext);
+  const { cartItems, removeFromCart, updateCartItemQuantity, calculateCartTotal } = useContext(ProductContext);
   const navigate = useNavigate();
 
   const handlePayment = async () => {
-    console.log(localStorage.getItem('access_token'))
-    const { data } = await axios.get(`http://localhost:3000/api/checkout`,{
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem('access_token')}`
-        }
-    });console.log(data, "<<< data");
-    window.snap.pay(data.transactionToken, {
-        onSuccess: async function(result){
-          /* You may add your own implementation here */
-          alert("payment success!"); console.log(result);
-          await axios.patch(`http://localhost:3000/users-upgrade`,{
-            orderId: data.orderId,
-          }, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('access_token')}`
-            }   
-          })
-        },
-        onPending: function(result){
-          /* You may add your own implementation here */
-          alert("wating your payment!"); console.log(result);
-        },
-        onError: function(result){
-          /* You may add your own implementation here */
-          alert("payment failed!"); console.log(result);
-        },
-        onClose: function(){
-          /* You may add your own implementation here */
-          alert('you closed the popup without finishing the payment');
-        }
-      })
-  }
+    try {
+      const total = calculateCartTotal() * 1.1; // Include tax or any additional charges
 
-  // If the cart is empty, display a message
+      // Make a request to the backend with the total amount
+      const { data } = await axios.get('http://localhost:3000/api/checkout', {
+        params: { total }, // Pass total as a query parameter
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+        },
+      });
+
+      // Trigger Midtrans payment popup
+      window.snap.pay(data.transactionToken, {
+        onSuccess: async function (result) {
+          alert('Payment successful!');
+          console.log(result);
+
+          // Update order status on the backend (optional)
+          await axios.patch(
+            'http://localhost:3000/users-upgrade',
+            { orderId: data.orderId },
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+              },
+            }
+          );
+        },
+        onPending: function (result) {
+          alert('Waiting for payment!');
+          console.log(result);
+        },
+        onError: function (result) {
+          alert('Payment failed!');
+          console.log(result);
+        },
+        onClose: function () {
+          alert('You closed the popup without finishing the payment');
+        },
+      });
+    } catch (error) {
+      console.error('Error during payment process:', error);
+      alert('Failed to initiate payment. Please try again.');
+    }
+  };
+
+  const handleQuantityChange = (id, newQuantity) => {
+    if (newQuantity < 1) return
+    updateCartItemQuantity(id, newQuantity)
+  };
+
   if (Object.keys(cartItems).length === 0) {
     return (
       <div className="container mx-auto my-10 p-4 text-center">
@@ -62,26 +79,46 @@ export default function Cart() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Display Cart Items */}
         <div className="col-span-2">
-            {Object.values(cartItems).map((item) => (
+          {Object.values(cartItems).map((item) => (
             <div key={item.id} className="flex justify-between items-center mb-4 border-b pb-4">
-                <img
+              <img
                 src={item.images[0]}
                 alt={item.title}
                 className="w-16 h-16 rounded-md object-cover"
-                />
-                <div className="flex-1 px-4">
+              />
+              <div className="flex-1 px-4">
                 <h2 className="font-semibold">{item.title}</h2>
-                    <p className="text-gray-500">Rp{item.price.toLocaleString()}</p>
-                <p className="text-gray-500">Quantity: {item.quantity}</p>
+                <p className="text-gray-500">Rp{item.price.toLocaleString()}</p>
+                <div className="flex items-center space-x-2">
+                  <button
+                    className="bg-gray-300 px-2 rounded hover:bg-gray-400 transition"
+                    onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    min="1"
+                    value={item.quantity}
+                    onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                    className="w-12 text-center border rounded"
+                  />
+                  <button
+                    className="bg-gray-300 px-2 rounded hover:bg-gray-400 transition"
+                    onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                  >
+                    +
+                  </button>
                 </div>
-                <button
+              </div>
+              <button
                 className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition"
                 onClick={() => removeFromCart(item.id)}
-                >
+              >
                 Remove
-                </button>
+              </button>
             </div>
-            ))}
+          ))}
         </div>
 
         {/* Cart Summary */}

@@ -45,6 +45,13 @@ const ProductContextProvider = (props) => {
     return Object.values(cartItems).reduce((total, item) => total + item.price * item.quantity, 0);
   };
   
+  function updateCartItemQuantity(id, newQuantity) {
+    setCartItems((prevItems) => {
+      const updatedItems = { ...prevItems };
+      updatedItems[id].quantity = newQuantity;
+      return updatedItems;
+    });
+  }
 
   // Fetch products from API on component mount
   useEffect(() => {
@@ -71,6 +78,7 @@ const ProductContextProvider = (props) => {
     addToCart, // Pass addToCart function to context
     removeFromCart, // Pass removeFromCart function to context
     calculateCartTotal, // Pass cart total calculation to context
+    updateCartItemQuantity
   };
 
   return (

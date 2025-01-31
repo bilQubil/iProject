@@ -70,4 +70,5 @@ describe('/login endpoint test', () => {
         expect(respone.body).toHaveProperty('message', 'Error: Password is required')
     })
 
+
 })

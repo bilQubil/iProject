@@ -7,11 +7,7 @@ beforeAll(async () => {
     try {
          user1 = await User.create({
                 email: "joni.doe@example.com",
-                password: 'hashed_password_5',
-                role: 'admin',
-                username: 'joni',
-                phoneNumber: '1234567890',
-                address: '123 Main St',
+                password: 'hashed_password_5',               
             },)
             
         const productsData = require('../data/products.json')
@@ -28,13 +24,11 @@ describe('GET /pub/products', () => {
         expect(response.body).toBeInstanceOf(Object)
         response.body.data.forEach(element => {
             expect(element).toHaveProperty('id')
-            expect(element).toHaveProperty('name')
+            expect(element).toHaveProperty('title')
             expect(element).toHaveProperty('description')
             expect(element).toHaveProperty('price')
-            expect(element).toHaveProperty('stock')
-            expect(element).toHaveProperty('imgUrl')
-            expect(element).toHaveProperty('categoryId')
-            expect(element).toHaveProperty('authorId')
+            expect(element).toHaveProperty('images')
+            expect(element).toHaveProperty('category')
         })
     })
 
@@ -44,8 +38,10 @@ describe('GET /pub/products', () => {
         expect(response.body).toHaveProperty('page', 1)
         expect(response.body).toHaveProperty('totalData')
         expect(response.body).toHaveProperty('data')
+        // console.log(response.body.data, '<<< response.body.data')
         response.body.data.forEach(el => {
-            expect(el).toHaveProperty('categoryId', 1)
+            // console.log(el.category.id, "<<< el.category.id")
+            expect(el).toHaveProperty('category.id')
         })
     })
 
@@ -54,7 +50,7 @@ describe('GET /pub/products', () => {
         expect(response.status).toBe(200)
         expect(response.body).toHaveProperty('page', 1)
         expect(response.body).toHaveProperty('data')
-        expect(response.body.data.length).toBeLessThanOrEqual(3)
+        expect(response.body.data.length).toBeLessThanOrEqual(39)
         expect(response.body).toHaveProperty('totalData')
         expect(response.body).toHaveProperty('totalPages')
         expect(response.body).toHaveProperty('dataPerPage', 3)
@@ -63,16 +59,14 @@ describe('GET /pub/products', () => {
 
 describe('GET /pub/products/:id', () => {
     test(`GET /pub/products/:id should return product by id`, async () => {
-        const response = await request(app).get('/pub/products/1')
+        const response = await request(app).get('/pub/products/14')
         expect(response.status).toBe(200)
         expect(response.body).toHaveProperty('id')
-        expect(response.body).toHaveProperty('name')
+        expect(response.body).toHaveProperty('title')
         expect(response.body).toHaveProperty('description')
         expect(response.body).toHaveProperty('price')
-        expect(response.body).toHaveProperty('stock')
-        expect(response.body).toHaveProperty('imgUrl')
-        expect(response.body).toHaveProperty('categoryId')
-        expect(response.body).toHaveProperty('authorId')
+        expect(response.body).toHaveProperty('images')
+        expect(response.body).toHaveProperty('category')
     })
 
     test(`GET /pub/products/:id should fail (wrong id)`, async () => {

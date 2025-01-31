@@ -92,7 +92,7 @@ class controller {
             res.json({ access_token: accessToken });
         } catch (error) {
             console.error('Google login verification failed', error);
-            res.status(500).send('Google login verification failed');
+            next(error);
         }
     }
     static async patchUserUpgrade(req, res, next) {

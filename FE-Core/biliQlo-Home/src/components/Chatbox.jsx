@@ -15,6 +15,7 @@ const Chatbox = () => {
 
     const userMessage = { sender: "user", text: message };
     setChatHistory((prev) => [...prev, userMessage]);
+    
     setMessage("");
 
     setLoading(true);
