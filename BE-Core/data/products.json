@@ -1,0 +1,40 @@
+[
+    {
+    "id": 1,
+    "name": "Peace For All T-Shirt Magnum Photos Lengan Pendek",
+    "description": "Saatnya mengambil tindakan atas nama perdamaian dunia.Tokoh-tokoh besar yang memiliki visi sama dengan UNIQLO telah secara sukarela merancang T-shirt yang mewujudkan keinginan damai mereka.",
+    "price": 199000,
+    "stock": 50,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459569/item/goods_00_459569_3x4.jpg?width=494",
+    "categoryId": 1,
+    "authorId": 1,
+    "createdAt": "2023-01-01T08:00:00Z",
+    "updatedAt": "2023-01-05T10:00:00Z"
+    },
+    {
+    "id": 2,
+    "name": "Jaket Crop Denim",
+    "description": "Dari 100% katun denim. Ukuran pendek untuk fit lebih ramping, dengan desain dan detail yang diperbarui. Denim ringan dan lembut. Fit santai dengan desain bahu menurun. Siluet boxy yang cocok dipadankan dengan bawahan apapun. Dengan proses dye.",
+    "price": 699000,
+    "stock": 20,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456090/item/goods_65_456090_3x4.jpg?width=288",
+    "categoryId": 2,
+    "authorId": 3,
+    "createdAt": "2023-01-02T09:00:00Z",
+    "updatedAt": "2023-01-06T11:00:00Z"
+    },
+    {
+    "id": 3,
+    "name": "Celana Chino Fit Lebar Lipit Uniqlo U",
+    "description": "Koleksi Uniqlo U adalah hasil karya tim desainer internasional yang terampil. Berbasis di Paris Research and Development Center yang dipimpin oleh Artistic Director, Christophe Lemaire.",
+    "price": 699000,
+    "stock": 35,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457967/item/goods_08_457967_3x4.jpg?width=369",
+    "categoryId": 3,
+    "authorId": 2,
+    "createdAt": "2023-01-03T10:00:00Z",
+    "updatedAt": "2023-01-07T12:00:00Z"
+    }
+]
+  
+  

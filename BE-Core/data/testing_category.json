@@ -1,0 +1,32 @@
+[
+	{
+		"id" : 1,
+		"name" : "T-Shirt",
+		"createdAt" : "2025-01-15T14:59:35.633Z",
+		"updatedAt" : "2025-01-15T14:59:35.633Z"
+	},
+	{
+		"id" : 2,
+		"name" : "Outerwear",
+		"createdAt" : "2025-01-15T14:59:35.633Z",
+		"updatedAt" : "2025-01-15T14:59:35.633Z"
+	},
+	{
+		"id" : 3,
+		"name" : "Bottom Wear",
+		"createdAt" : "2025-01-15T14:59:35.633Z",
+		"updatedAt" : "2025-01-15T14:59:35.633Z"
+	},
+	{
+		"id" : 4,
+		"name" : "Special Collaborations",
+		"createdAt" : "2025-01-15T16:18:47.775Z",
+		"updatedAt" : "2025-01-15T16:18:47.775Z"
+	},
+	{
+		"id" : 5,
+		"name" : "sita",
+		"createdAt" : "2025-01-15T16:19:13.197Z",
+		"updatedAt" : "2025-01-15T16:48:40.432Z"
+	}
+]

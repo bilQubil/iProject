@@ -1,0 +1,22 @@
+[
+    {
+    "id": 1,
+    "name": "T-Shirt",
+    "createdAt": "2023-01-01T08:00:00Z",
+    "updatedAt": "2023-01-05T08:00:00Z"
+    },
+    {
+    "id": 2,
+    "name": "Outerwear",
+    "createdAt": "2023-01-02T09:00:00Z",
+    "updatedAt": "2023-01-06T09:00:00Z"
+    },
+    {
+    "id": 3,
+    "name": "Bottom Wear",
+    "createdAt": "2023-01-03T10:00:00Z",
+    "updatedAt": "2023-01-07T10:00:00Z"
+    }
+]
+  
+  

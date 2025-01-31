@@ -1,0 +1,35 @@
+{
+  "name": "gc01-bilqubil",
+  "version": "1.0.0",
+  "description": "[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=17683403&assignment_repo_type=AssignmentRepo)\r # P2-Challenge-1 (Server Side)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --detectOpenHandles --forceExit --verbose --runInBand"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "axios": "^1.7.9",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "google-auth-library": "^9.15.1",
+    "imagekit": "^6.0.0",
+    "jest": "^29.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "midtrans-client": "^1.4.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.9",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.5",
+    "sequelize-cli": "^6.6.2"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  }
+}

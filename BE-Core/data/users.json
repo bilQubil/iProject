@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "username": "john_doe",
+    "email": "john.doe@example.com",
+    "password": "hashed_password_1",
+    "role": "admin",
+    "phoneNumber": "123-456-7890",
+    "address": "123 Main St, Springfield, USA",
+    "createdAt": "2023-01-01T12:00:00Z",
+    "updatedAt": "2023-01-10T12:00:00Z"
+  },
+  {
+    "id": 2,
+    "username": "jane_smith",
+    "email": "jane.smith@example.com",
+    "password": "hashed_password_2",
+    "role": "user",
+    "phoneNumber": "987-654-3210",
+    "address": "456 Elm St, Springfield, USA",
+    "createdAt": "2023-01-02T12:00:00Z",
+    "updatedAt": "2023-01-11T12:00:00Z"
+  },
+  {
+    "id": 3,
+    "username": "bob_johnson",
+    "email": "bob.johnson@example.com",
+    "password": "hashed_password_3",
+    "role": "user",
+    "phoneNumber": "555-123-4567",
+    "address": "789 Oak St, Springfield, USA",
+    "createdAt": "2023-01-03T12:00:00Z",
+    "updatedAt": "2023-01-12T12:00:00Z"
+  }
+]

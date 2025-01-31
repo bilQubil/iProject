@@ -1,0 +1,46 @@
+[
+	{
+		"id" : 1,
+		"username" : "john_doe",
+		"email" : "john.doe@example.com",
+		"password" : "$2a$10$wP7tMv2FFz76ZUms2SqwJOb08hZkE.BcVgsUdY.JYD8izYWopo3QC",
+		"role" : "admin",
+		"phoneNumber" : "123-456-7890",
+		"address" : "123 Main St, Springfield, USA",
+		"createdAt" : "2025-01-15T14:59:35.497Z",
+		"updatedAt" : "2025-01-15T14:59:35.497Z"
+	},
+	{
+		"id" : 2,
+		"username" : "jane_smith",
+		"email" : "jane.smith@example.com",
+		"password" : "$2a$10$Eb\/IOFnzvvuYZKhINSWe\/..Wdjb8QzgkbqN\/ca9vk18Wi35PrskOS",
+		"role" : "user",
+		"phoneNumber" : "987-654-3210",
+		"address" : "456 Elm St, Springfield, USA",
+		"createdAt" : "2025-01-15T14:59:35.554Z",
+		"updatedAt" : "2025-01-15T14:59:35.554Z"
+	},
+	{
+		"id" : 3,
+		"username" : "bob_johnson",
+		"email" : "bob.johnson@example.com",
+		"password" : "$2a$10$6huqzkRzInCwOOURY.uluewLHSeJpoMGgjnK\/ap9pEB\/UfHgDwfEG",
+		"role" : "user",
+		"phoneNumber" : "555-123-4567",
+		"address" : "789 Oak St, Springfield, USA",
+		"createdAt" : "2025-01-15T14:59:35.615Z",
+		"updatedAt" : "2025-01-15T14:59:35.615Z"
+	},
+	{
+		"id" : 4,
+		"username" : "bibil",
+		"email" : "bb@gmail.com",
+		"password" : "$2a$10$lTRAR6oYA6kR\/YD1Ar0j1eAd1EIr1WUteiEhiDaIsAGI4R7.9wZSu",
+		"role" : "user",
+		"phoneNumber" : "12345",
+		"address" : "jalan bibil",
+		"createdAt" : "2025-01-15T15:00:47.419Z",
+		"updatedAt" : "2025-01-15T15:00:47.419Z"
+	}
+]
