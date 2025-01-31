@@ -13,15 +13,15 @@ const ProductContextProvider = (props) => {
 
   // Function to add an item to the cart
   const addToCart = (itemId) => {
-    const product = products.find((p) => p.id === itemId); // Find product details by ID
-    if (!product) return; // Exit if product not found
+    const product = products.find((p) => p.id === itemId); 
+    if (!product) return; 
   
     setCartItems((prevCartItems) => {
       // Check if item is already in the cart
       const existingItem = prevCartItems[itemId];
       const updatedItem = existingItem
         ? { ...existingItem, quantity: existingItem.quantity + 1 }
-        : { ...product, quantity: 1 }; // Add product details with quantity
+        : { ...product, quantity: 1 }; 
   
       // Update the cart with the new or updated item
       return {
@@ -35,7 +35,7 @@ const ProductContextProvider = (props) => {
   const removeFromCart = (itemId) => {
     setCartItems((prevCartItems) => {
       const updatedCart = { ...prevCartItems };
-      delete updatedCart[itemId]; // Remove the item by ID
+      delete updatedCart[itemId]; 
       return updatedCart;
     });
   };
@@ -57,13 +57,13 @@ const ProductContextProvider = (props) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://api.escuelajs.co/api/v1/products"); // Adjust API URL if necessary
+        const response = await axios.get(import.meta.env.VITE_API_URL);
         const fetchedProducts = response.data || [];
-        setProducts(fetchedProducts); // Store fetched products in state
-        setLoading(false); // Set loading to false once products are fetched
+        setProducts(fetchedProducts); 
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
-        setLoading(false); // Set loading to false in case of error
+        setLoading(false); 
       }
     };
 
@@ -71,13 +71,12 @@ const ProductContextProvider = (props) => {
   }, []);
 
   const value = {
-    products, // Pass products to context
-    currency, // Pass currency to context
-    loading, // Optionally, pass loading state to handle UI changes while fetching
-    cartItems, // Pass cart items to context
-    addToCart, // Pass addToCart function to context
-    removeFromCart, // Pass removeFromCart function to context
-    calculateCartTotal, // Pass cart total calculation to context
+    products, 
+    currency, 
+    loading, 
+    addToCart, 
+    removeFromCart,
+    calculateCartTotal, 
     updateCartItemQuantity
   };
 

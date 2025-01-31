@@ -18,7 +18,7 @@ const Collection = () => {
       try {
         const response = await axios.get(
           // 'https://biliqlo.my.id/pub/products'
-          `http://localhost:3000/pub/products`
+          ` http://13.211.190.146/pub/products`
         );
         console.log(response.data.data, '<<< response.data');
         const fetchedProducts = response.data.data || [];
@@ -39,7 +39,7 @@ const Collection = () => {
         const token = localStorage.getItem('access_token');
         const response = await axios.get(
           // 'https://biliqlo.my.id/categories'
-          `http://localhost:3000/pub/categories`,
+          ` http://13.211.190.146/pub/categories`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

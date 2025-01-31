@@ -30,7 +30,7 @@ export default function Register() {
 
       const response = await axios.post(
         // 'https://biliqlo.my.id/add-user'
-        `http://localhost:3000/register`
+        `http://13.211.190.146/register`
         , {
         username,
         email,

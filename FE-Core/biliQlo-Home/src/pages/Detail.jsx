@@ -16,7 +16,7 @@ const Detail = () => {
         const token = localStorage.getItem("access_token");
         const response = await axios.get(
           // `https://biliqlo.my.id/products/${id}`
-          `http://localhost:3000/pub/products/${id}`
+          `http://13.211.190.146/pub/products/${id}`
           , {
           headers: {
             Authorization: `Bearer ${token}`,

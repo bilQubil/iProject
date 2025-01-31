@@ -12,7 +12,7 @@ export default function Cart() {
       const total = calculateCartTotal() * 1.1; // Include tax or any additional charges
 
       // Make a request to the backend with the total amount
-      const { data } = await axios.get('http://localhost:3000/api/checkout', {
+      const { data } = await axios.get('http://13.211.190.146/api/checkout', {
         params: { total }, // Pass total as a query parameter
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
@@ -27,7 +27,7 @@ export default function Cart() {
 
           // Update order status on the backend (optional)
           await axios.patch(
-            'http://localhost:3000/users-upgrade',
+            'http://13.211.190.146/users-upgrade',
             { orderId: data.orderId },
             {
               headers: {

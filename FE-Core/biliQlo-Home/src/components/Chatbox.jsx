@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import axios from "axios";
 
@@ -21,7 +21,7 @@ const Chatbox = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3000/askme", { prompt:message },
+      const response = await axios.post("http://13.211.190.146/askme", { prompt:message },
         {        
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,

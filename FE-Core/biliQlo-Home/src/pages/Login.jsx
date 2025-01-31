@@ -41,7 +41,7 @@ export default function Login() {
       // Send Google token to backend
       const backendResponse = await axios.post(
         // 'https://biliqlo.my.id/google-login'
-        `http://localhost:3000/google-login`
+        `http://13.211.190.146/google-login`
         , {
         token: googleToken,
       });
@@ -60,7 +60,7 @@ export default function Login() {
     try {
       const response = await axios.post(
         // 'https://biliqlo.my.id/login'
-        `http://localhost:3000/login`
+        `http://13.211.190.146/login`
         , {
         email: email,
         password: password,
